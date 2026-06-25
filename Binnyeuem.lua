@@ -1,3 +1,8 @@
+repeat wait() until game:IsLoaded() and game["Players"]["LocalPlayer"]
+local CorrectKey = "999999999999"
+if (getgenv())["Key"] ~= CorrectKey then
+	return
+end
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
@@ -28,6 +33,24 @@ local JobToolAbilities = ((ReplicatedStorage:WaitForChild("Modules")):WaitForChi
 local GetWaterHeightAtLocation = require(ReplicatedStorage["Util"]["GetWaterHeightAtLocation"])
 local reportWebhookURL = "https://discord.com/api/webhooks/1470044798202151134/4uLMDv_QBhalhhsoo9XnNEBmnLKOQ4xIhJgO91tTBBDwkZ3_eyojKnHWrmtfLoLHH1sZ"
 local ideasWebhookURL = "https://discord.com/api/webhooks/1470044798202151134/4uLMDv_QBhalhhsoo9XnNEBmnLKOQ4xIhJgO91tTBBDwkZ3_eyojKnHWrmtfLoLHH1sZ"
+local executor = getexecutorname() or identifyexecutor()
+if executor then
+	if string["find"](executor, "Bunni") or string["find"](executor, "FluxusZ") or string["find"](executor, "Delta") or string["find"](executor, "Arceus") or string["find"](executor, "Xeno") or string["find"](executor, "Swift") or string["find"](executor, "Awp") or string["find"](executor, "Volcano") or string["find"](executor, "Argon") or string["find"](executor, "Macsploit") or string["find"](executor, "Potassium") or string["find"](executor, "CodeX") or string["find"](executor, "Velocity") or string["find"](executor, "Romix") then
+		print("ok")
+	else
+		game["Players"]["LocalPlayer"]:Kick("Please use Delta Exploit or PC use volcano or Exploit paid!")
+	end
+end
+function playDlg(id)
+	local rs = game:GetService("ReplicatedStorage")
+	local dlgCtrl = require(rs["DialogueController"])
+	local dlgList = require(rs["DialoguesList"])
+	for k, v in pairs(dlgList) do
+		if tostring(k) == id then
+			dlgCtrl:Start(v)
+		end
+	end
+end
 local placeId = game["PlaceId"]
 local World1 = game["PlaceId"] == 2753915549 or 85211729168715
 local World2 = game["PlaceId"] == 4442272183 or 79091703265657
